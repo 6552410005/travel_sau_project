@@ -34,7 +34,7 @@ class _ShowTravelUIState extends State<ShowTravelUI> {
               child: Image.file(
                 File(widget.travelInfo!.pictureTravel!),
                 width: MediaQuery.of(context).size.width * 0.4,
-                height: MediaQuery.of(context).size.height * 0.4,
+                height: MediaQuery.of(context).size.width * 0.4,
                 fit: BoxFit.cover,
               ),
             ),
