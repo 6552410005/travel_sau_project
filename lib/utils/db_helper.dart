@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_is_empty, avoid_returning_null_for_void, null_check_always_fails
 
+import 'dart:html';
+
 import 'package:sqflite/sqflite.dart';
 import 'package:travel_sau_project/models/travel.dart';
 import 'package:travel_sau_project/models/user.dart';
@@ -43,7 +45,7 @@ class DBHelper {
   }
 
 //บันทึกข้อมูล User
-    static Future<int> insertUser(User user) async {
+  static Future<int> insertUser(User user) async {
     final db = await DBHelper.db();
 
     final id = await db.insert(
@@ -65,7 +67,7 @@ class DBHelper {
     return id;
   }
 
-  static Future<User?> checkSignin(String username,String password) async{
+  static Future<User?> checkSignin(String username, String password) async {
     final db = await DBHelper.db();
 
     List<Map<String, dynamic>> result = await db.query(
@@ -73,10 +75,24 @@ class DBHelper {
       where: 'username = ? and password = ?',
       whereArgs: [username, password],
     );
-    if(result.length > 0){
+    if (result.length > 0) {
       return User.fromMap(result[0]);
-    }else {
+    } else {
       return null;
     }
+  }
+
+  //ดึงข้อมูลทั้งหมดจาก travel
+  static Future<List<Travel>> getAllTravel() async {
+    //ติดต่อ DB
+    final db = await DBHelper.db();
+
+    //ดึงข้อมูลเก็บในตัวแปร
+    final result = await db.query(
+      'traveltb',
+      orderBy: 'id DESE',
+    );
+
+    return result.map((data) => Travel.fromMap(data)).toList();
   }
 }
