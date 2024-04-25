@@ -23,7 +23,7 @@ class _AddTravelUIState extends State<AddTravelUI> {
   File? showImage;
   String? saveImage;
 
-  SelecPhoto() async {
+  SelectPhoto() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
 
     if (image == null) return;
@@ -124,7 +124,7 @@ class _AddTravelUIState extends State<AddTravelUI> {
                         ),
                   IconButton(
                     onPressed: () {
-                      SelecPhoto();
+                      SelectPhoto();
                     },
                     icon: Icon(
                       FontAwesomeIcons.photoFilm,
