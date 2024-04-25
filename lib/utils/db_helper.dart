@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_is_empty, avoid_returning_null_for_void, null_check_always_fails
 
-import 'dart:html';
 
 import 'package:sqflite/sqflite.dart';
 import 'package:travel_sau_project/models/travel.dart';
@@ -8,7 +7,7 @@ import 'package:travel_sau_project/models/user.dart';
 
 class DBHelper {
   static Future<Database> db() async {
-    return openDatabase('travelrecord.db', version: 1,
+    return openDatabase('travelrecord.db', version: 2,
         onCreate: (Database database, int version) async {
       //สร้างตาราง
       await createUserTable(database);
@@ -90,7 +89,7 @@ class DBHelper {
     //ดึงข้อมูลเก็บในตัวแปร
     final result = await db.query(
       'traveltb',
-      orderBy: 'id DESE',
+      orderBy: 'id DESC',
     );
 
     return result.map((data) => Travel.fromMap(data)).toList();

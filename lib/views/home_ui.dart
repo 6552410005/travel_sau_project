@@ -29,6 +29,12 @@ class _HomeUIState extends State<HomeUI> {
         });
   }
 
+@override
+  void initState() {
+    getallTravelData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,9 +103,7 @@ class _HomeUIState extends State<HomeUI> {
             ),
             travelinfo == null
                 ? Container()
-                : SizedBox(
-                    height: 15,
-                  ),
+                : 
             Expanded(
               child: ListView.builder(
                   itemCount: travelinfo!.length,
