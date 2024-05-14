@@ -12,8 +12,10 @@ Created By : Kanchai Singkhot DTI-SAU
 <br>
 
 ## TravelData UI
+<p>
 <img src="https://github.com/6552410005/travel_sau_project/blob/main/assets/images/TraveldataUI.png?raw=true" width="150px">
 <img src="https://github.com/6552410005/travel_sau_project/blob/main/assets/images/TraveldataUI2.png?raw=true" width="150px">
+</p>
 <br>
 
 ## TravelInfo UI
